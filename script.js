@@ -88,10 +88,10 @@ generate.addEventListener("click", () => {
 });
 
 clipboard.addEventListener("click", () => {
-  console.log("f");
-  // Copy the text inside the text field
   navigator.clipboard.writeText(result.innerText);
-
-  // Alert the copied text
-  alert("Copied the text: " + result.innerText);
+  if (result.innerHTML.length > 0) {
+    alert("Copied the text: " + result.innerText);
+  } else {
+    return;
+  }
 });
