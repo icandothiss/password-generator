@@ -63,10 +63,18 @@ function getRandom() {
     }
     allChars.splice(deleteIndex, 1);
   }
-  console.log(allChars);
-  let result = allChars.map(({ key, value }) => ({ key }));
-  let exemple = result[Math.floor(Math.random() * allChars.length)].key;
-  return exemple;
+  let numOfChecked = [
+    upperCase.checked + lowerCase.checked + numbers.checked + symbols.checked,
+  ][0];
+  if (numOfChecked > 0) {
+    console.log("y");
+    let finalResult = allChars.map(({ key, value }) => ({ key }));
+    let exemple = finalResult[Math.floor(Math.random() * allChars.length)].key;
+    return exemple;
+  } else {
+    exemple = "";
+    return exemple;
+  }
 }
 
 generate.addEventListener("click", () => {
