@@ -4,7 +4,7 @@ counters.forEach((counter) => {
   const updateCount = () => {
     const target = +counter.getAttribute("data-target");
     const count = +counter.innerHTML;
-    const inc = target / speed;
+    const inc = Math.ceil(target / speed);
     if (count < target) {
       counter.innerText = count + inc;
       setTimeout(updateCount, 1);
